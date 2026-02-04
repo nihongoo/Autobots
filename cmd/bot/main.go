@@ -18,7 +18,6 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/gorilla/mux"
-	"github.com/joho/godotenv"
 )
 
 type BotServer struct {
@@ -68,9 +67,9 @@ type AttachmentPayload struct {
 
 func main() {
 	// Load config
-	if err := godotenv.Load("../../config/.env"); err != nil {
-		log.Println("Không tìm thấy file .env, dùng biến môi trường")
-	}
+	// if err := godotenv.Load("../../config/.env"); err != nil {
+	// 	log.Println("Không tìm thấy file .env, dùng biến môi trường")
+	// }
 
 	pageAccessToken := os.Getenv("PAGE_ACCESS_TOKEN")
 	verifyToken := os.Getenv("VERIFY_TOKEN")
