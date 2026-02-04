@@ -8,7 +8,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/joho/godotenv"
 	"autobots/pkg/protocol"
 	"autobots/pkg/queue"
 	"autobots/pkg/registry"
@@ -22,9 +21,9 @@ type OptimusPrime struct {
 
 func main() {
 	// Load config
-	if err := godotenv.Load("../../../config/.env"); err != nil {
-		log.Println("Không tìm thấy file .env, dùng biến môi trường")
-	}
+	// if err := godotenv.Load("../../../config/.env"); err != nil {
+	// 	log.Println("Không tìm thấy file .env, dùng biến môi trường")
+	// }
 
 	redisHost := getEnv("REDIS_HOST", "localhost")
 	redisPort := getEnv("REDIS_PORT", "6379")
