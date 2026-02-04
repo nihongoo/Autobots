@@ -57,6 +57,8 @@ func main() {
 	// Heartbeat - renew registration mỗi 30s
 	go plugin.heartbeat()
 
+		log.Printf("✅ Đã đăng ký plugin: %s", plugin.name)
+
 	// Lắng nghe requests
 	log.Printf("🤖 %s is ready to roll out!", plugin.name)
 	plugin.listen()
@@ -76,8 +78,6 @@ func (p *OptimusPrime) register() error {
 	if err := p.registry.Register(ctx, info); err != nil {
 		return fmt.Errorf("lỗi đăng ký: %w", err)
 	}
-
-	log.Printf("✅ Đã đăng ký plugin: %s", info.Name)
 	return nil
 }
 
@@ -88,9 +88,7 @@ func (p *OptimusPrime) heartbeat() {
 	for range ticker.C {
 		if err := p.register(); err != nil {
 			log.Printf("⚠️ Heartbeat failed: %v", err)
-		} else {
-			log.Println("💓 Heartbeat sent")
-		}
+		} 
 	}
 }
 
