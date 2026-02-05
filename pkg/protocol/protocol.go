@@ -7,6 +7,7 @@ type PluginRequest struct {
 	RequestID   string                 `json:"request_id"`
 	Command     string                 `json:"command"`      // Tên lệnh: convert, resize, ...
 	Args        []string               `json:"args"`         // Tham số
+	RawInput    string                 `json:"raw_input"`    // ← THÊM DÒNG NÀY - Input nguyên bản
 	UserID      string                 `json:"user_id"`      // Facebook User ID
 	Files       []FileAttachment       `json:"files"`        // File đính kèm
 	Metadata    map[string]interface{} `json:"metadata"`     // Thông tin thêm

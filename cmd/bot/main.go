@@ -220,6 +220,7 @@ func (b *BotServer) handleMessage(event MessagingEvent) {
 		RequestID: requestID,
 		Command:   command,
 		Args:      args,
+		RawInput:  text,
 		UserID:    userID,
 		Files:     files,
 		CreatedAt: time.Now(),
